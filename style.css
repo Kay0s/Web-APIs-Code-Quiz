@@ -1,0 +1,41 @@
+/* makes unvisited link yellow witih no underline */
+a:link {
+  color: yellow;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/* makes visited link purple with no underline */
+a:visited {
+  color: purple;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+/* when mousing over a link, the background will be green and underlined */
+a:hover {
+  background-color: green;
+  text-decoration: underline;
+}
+
+/* makes an active link orange and underlined */
+a:active {
+  color: orange;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
+/* links external url image and makes it the size of the whole screen */
+.background-image {
+  background-image: url("https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80");
+  background-size: cover;
+}
+
+
+/* taken from https://stackoverflow.com/questions/42430987/how-to-change-the-opacity-of-a-card-block-in-bootstrap-4 */
+/* retrieved on 10 Oct 2020 */
+/* couldn't figure out how to change the opacity of the card and now I know how */
+.card-transparent {
+background-color: rgba(245, 245, 245, .4);
+}
