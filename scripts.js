@@ -19,8 +19,8 @@
 // 2. Multiple Choice Questions:
 //    a. "On Screen Timer" - upper right hand corner (purple font)
 //    b."Submit" button for choice, (bg purple with white font/hover CSS styling)  -  when pressed <submit on click>
-//   b1. if <on click> "Right" - ("your final score" && + 1 ) + <event listener> text w/<hr>"Correct" message + <even listener question query selector by ID> next question appears
-//   b2. if <on click> "Wrong" - ("Time Left" && "On Screen Timer" - 10 seconds) <event listener> text w/<hr>"Wrong" message + <even listener question query selector by ID> next question appears
+//   b1. if <on click> "Right" - ("your final score" && + 1 ) + <event listener> text w/<hr>"Correct" message + <even listener question query selector by ID> next question appears from random.splice.questionArray
+//   b2. if <on click> "Wrong" - ("Time Left" && "On Screen Timer" - 10 seconds) <event listener> text w/<hr>"Wrong" message + <even listener question query selector by ID> next question appearsrandom.splice.questionArray
 //    c. "Highscores" link - upper left hand corner (purple font)
 // 3. Quiz Ends:
 //    a1. if all questions answered ("Questions Remaining" === "0")
@@ -175,9 +175,19 @@ document.getElementById("w6Btn").addEventListener("click", function() {
 });
 
 
-function myFunction() {
-  let x = document.getElementById("myDIV");
-  if (window.getComputedStyle(x).display === "none") {
-    x.style.display = "block";
-  }
-}
+// form questionsAvailable array
+let questionsAvailable = [
+  {"question" : "What is the DOM API?" , "options" : ["Data representation of the objects that comprise the structure and content of a document on the web","Doing Outstanding Math","Domestic Over Minutes","Dividing Object Miniscule"], "answer" : "Data representation of the objects that comprise the structure and content of a document on the web"},
+  {"question" : "What is JQeury?" , "options" : ["A JavaScript Library","Just a question","Elements of the letter j","Justice without question"], "answer" :"A JavaScript Library"},
+]
+
+
+// randomize questionsAvailable and splice into questionsUsed array
+let questionsUsed = questionsAvailable.splice(Math.floor(Math.random()*questionsAvailable.length),1)[i];
+
+
+// display question from array
+function display_question()
+{
+   let question = document.getElementById("questions"(text))
+  
