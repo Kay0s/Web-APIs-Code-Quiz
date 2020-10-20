@@ -41,108 +41,143 @@
 
 
 
-//  changes the div id = "seconds"
-let secondsDisplay = document.querySelector("#seconds");
+// //  changes the div id = "seconds"
+// let secondsDisplay = document.querySelector("#seconds");
 
-let totalSeconds = 0;
-let status = "Time";
-let interval;
+// let totalSeconds = 0;
+// let status = "Time";
+// let interval;
 
-// formats the "On Screen Timer" to have two digits
-function getFormattedSeconds() {
-   let secondsLeft = (totalSeconds - secondsElapsed) % 60;
+// // formats the "On Screen Timer" to have two digits
+// function getFormattedSeconds() {
+//    let secondsLeft = (totalSeconds - secondsElapsed) % 60;
   
-    var formattedSeconds;
+//     var formattedSeconds;
   
-    if (secondsLeft < 10) {
-      formattedSeconds = "0" + secondsLeft;
-    } else {
-      formattedSeconds = secondsLeft;
-    }
+//     if (secondsLeft < 10) {
+//       formattedSeconds = "0" + secondsLeft;
+//     } else {
+//       formattedSeconds = secondsLeft;
+//     }
   
-    return formattedSeconds;
-  }
+//     return formattedSeconds;
+//   }
 
-  /* This function retrieves the values from the html input elements and resets "On Screen Timer and Time Left*/
-function setTime() {
-    let secondsLeft;
+//   /* This function retrieves the values from the html input elements and resets "On Screen Timer and Time Left*/
+// function setTime() {
+//     let secondsLeft;
   
-    if (status === "Correct") {
-      secondsLeft = secondsLeftInput.value.trim();
-    } else (status === "Wrong"); {
-      secondsLeft = secondsLeftInput.value.trim() - 10 seconds;
-    }
+//     if (status === "Correct") {
+//       secondsLeft = secondsLeftInput.value.trim();
+//     } else (status === "Wrong"); {
+//       secondsLeft = secondsLeftInput.value.trim() - 10 seconds;
+//     }
   
-    clearInterval(interval);
-    totalSeconds = minutes * 60;
-  }
+//     clearInterval(interval);
+//     totalSeconds = minutes * 60;
+//   }
 
-   // check to see if time has run out
-   if (questionsRemaining >= totalQuestions) {
-    continueTimer();
-}
+//    // check to see if time has run out
+//    if (questionsRemaining >= totalQuestions) {
+//     continueTimer();
+// }
    
-   if (questionsRemaining === 0) {
-    alert("Quiz is over");
-    stopTimer();
-}
+//    if (questionsRemaining === 0) {
+//     alert("Quiz is over");
+//     stopTimer();
+// }
     
-if (secondsRemaining === 0) {
-    alert("Quiz is over");
-    stopTimer();
-}
+// if (secondsRemaining === 0) {
+//     alert("Quiz is over");
+//     stopTimer();
+// }
    
 
-// Set "On Screen Timer" fuctions
-function startTimer() {
-  setTime();
+// // Set "On Screen Timer" fuctions
+// function startTimer() {
+//   setTime();
 
-  if (totalSeconds > 0) {
-    /* The "interval" variable here using "setInterval()" begins the recurring increment of the
-       secondsElapsed variable which is used to check if the time is up */
-      interval = setInterval(function() {
-        secondsElapsed++;
+//   if (totalSeconds > 0) {
+//     /* The "interval" variable here using "setInterval()" begins the recurring increment of the
+//        secondsElapsed variable which is used to check if the time is up */
+//       interval = setInterval(function() {
+//         secondsElapsed++;
 
-        //  renderTime() is called here once every second.
-        renderTime();
-      }, 1000);
-  } 
-}
+//         //  renderTime() is called here once every second.
+//         renderTime();
+//       }, 1000);
+//   } 
+// }
 
-/* This function stops the setInterval() set in startTimer but does not
-   reset the secondsElapsed variable and does not reset the time by calling "setTime()" */
-   function pauseTimer() {
-    clearInterval(interval);
-    renderTime();
-  }
+// /* This function stops the setInterval() set in startTimer but does not
+//    reset the secondsElapsed variable and does not reset the time by calling "setTime()" */
+//    function pauseTimer() {
+//     clearInterval(interval);
+//     renderTime();
+//   }
   
-  /* This function stops the interval and also resets secondsElapsed
-     and calls "setTime()" which effectively reset the timer
-     to the input selections workMinutesInput.value and restMinutesInput.value */
-  function stopTimer() {
-    secondsElapsed = 0;
-    setTime();
-    renderTime();
-  }
+//   /* This function stops the interval and also resets secondsElapsed
+//      and calls "setTime()" which effectively reset the timer
+//      to the input selections workMinutesInput.value and restMinutesInput.value */
+//   function stopTimer() {
+//     secondsElapsed = 0;
+//     setTime();
+//     renderTime();
+//   }
 
-   //setTime and renderTime 
-   renderTime();
- }
+//    //setTime and renderTime 
+//    renderTime();
+//  }
  
- function setSecondsLeft() {
-   localStorage.setItem(
-     "timer",
-     JSON.stringify({
-       secondsLeft: secondsLeftInput.value.trim()
-     })
-   );
- }
+//  function setSecondsLeft() {
+//    localStorage.setItem(
+//      "timer",
+//      JSON.stringify({
+//        secondsLeft: secondsLeftInput.value.trim()
+//      })
+//    );
+//  }
  
- submitButton.addEventListener("click", startTimer);
- wrongButton.addEventListener("click", reduceTimer);
- rightButton.addEventListener("click", addScore);
- initialsButton.addEventListener("click", addHighscoresArray);
- gobackButton.addEventListener("click", gobackInstructions);
- clearHighScores.addEventListener("click", deleteHighscoresArray);
- highScoresButton.addEventListener("click", displayHighscoresArray);
+//  submitButton.addEventListener("click", startTimer);
+//  wrongButton.addEventListener("click", reduceTimer);
+//  rightButton.addEventListener("click", addScore);
+//  initialsButton.addEventListener("click", addHighscoresArray);
+//  gobackButton.addEventListener("click", gobackInstructions);
+//  clearHighScores.addEventListener("click", deleteHighscoresArray);
+//  highScoresButton.addEventListener("click", displayHighscoresArray);
  
+// get right or wrong message with on click
+document.getElementById("r1Btn").addEventListener("click", function() {
+  document.getElementById("r1").innerHTML = "Right";
+});
+
+document.getElementById("w1Btn").addEventListener("click", function() {
+  document.getElementById("w1").innerHTML = "Wrong";
+});
+document.getElementById("w2Btn").addEventListener("click", function() {
+  document.getElementById("w2").innerHTML = "Wrong";
+});
+document.getElementById("w3Btn").addEventListener("click", function() {
+  document.getElementById("w3").innerHTML = "Wrong";
+});
+document.getElementById("r2Btn").addEventListener("click", function() {
+  document.getElementById("r2").innerHTML = "Right";
+});
+
+document.getElementById("w4Btn").addEventListener("click", function() {
+  document.getElementById("w4").innerHTML = "Wrong";
+});
+document.getElementById("w5Btn").addEventListener("click", function() {
+  document.getElementById("w5").innerHTML = "Wrong";
+});
+document.getElementById("w6Btn").addEventListener("click", function() {
+  document.getElementById("w6").innerHTML = "Wrong";
+});
+
+
+function myFunction() {
+  let x = document.getElementById("myDIV");
+  if (window.getComputedStyle(x).display === "none") {
+    x.style.display = "block";
+  }
+}
