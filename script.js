@@ -3,7 +3,7 @@
 //Write coding questions for quiz
 
 // Constant/Persistent Elements
-//    a. "On Screen Timer" - displays "Seconds Left" starting point of 75 seconds function of ("Questions Remaining and "your final score") in upper right hand corner (purple font)
+//    a. "On Screen Timer" - displays "Seconds Left" starting point of 0 on Instruction Message and upon even listener (on click of starQuiz button, Total Seconds Remaining 75) seconds function of ("Questions Remaining and "your final score") in upper right hand corner (purple font)
 //    b. "Highscores" link - upper left hand corner (purple font) function of (<ol>"your final score"</ol>
 //    c. "your final score"- tallied on console and shown on "Final Score Page" and on "Highscores" listed as <tr?> with purple background highlight with onclick
 //    d. "Total Questions" vs "Questions Remaining" function of ("Wrong" = "Time Left" - 10 seconds")
@@ -26,7 +26,7 @@
 //    b. When quiz ends
 // 4. Final Score Text:
 //    a. "your final score" - shown on page, push to 'Highscores" array and sort array by score to display as <ul></ul> in <tr>
-//    b. <event listener> form box to enter "Initials" - ("Initials" + "your final score" push to "HighScores Page")
+//    b. <event listener> form box to enter "Initials" - ("Initials" + "your final score" retrieve from local storage and JSon to "HighScores Page")
 //    c. <on click> "Submit" button -  High Scores text appears (bg purple with white font/hover CSS styling)
 //    d. <on click>"Go Back" button (bg purple with white font/hover CSS styling) - Instructions text appears
 //    e. "On Screen Timer" - upper right hand corner (purple font)
@@ -50,14 +50,21 @@
 
 //   time--;
 // }
-// document.getElementbyId("startQuiz").addEventListener("click", removeIntro);
+
+let btn = document.querySelector("startQuiz");
+
+btn.addEventListener("click", function removeIntro() {
+  document.querySelector("textCenter").style.display = "none";
+});
+
+// document.querySelector("#startQuiz").addEventListener("click", removeIntro);
 // function removeIntro() {
-//   document.getElementById("text-center text-black").style.display = "none";
+//   document.querySelector("text-center text-black").style.display = "none";
 // }
 
-// document.getElementById("startQuiz").addEventListener("click", flyinQuest1);
+// document.querySelector("#startQuiz").addEventListener("click", flyinQuest1);
 // function flyinQuest1() {
-//   document.getElementById("questions-text1").style.display = "visible";
+//   document.querySelector("questions-text1").style.display = "visible";
 // }
 
 //   /* This function retrieves the values from the html input elements and resets "On Screen Timer and Time Left*/
