@@ -35,62 +35,94 @@
 //    a. "Go Back" button - links to Home Screen (bg purple with white font/hover CSS styling)
 //    b. "Clear High Scores" button (bg purple with white font/hover CSS styling)
 
+//Global Parameters
 let yourFinalScore = 0;
 let totalSeconds = 75;
 let questionsLeft = 5;
 
+// local parameters defined by events in functions
+let startBtn = document.querySelector("#start-quiz");
+let secondsDisplay = document.querySelector("#seconds");
+let timeSpan = document.createElement("span");
+let ChoiceBtn = document.createElement("button");
+let answersDiv = document.querySelector(".answers");
+let submitBtn1 = document.getElementById("#Btn1");
+let currentQuestion = questionsAvailable.options;
+let ChoiceBtn = document.createElement("button");
+
+// event listener on click of "start-quiz" button defines 
 let startBtn = document.querySelector("#start-quiz");
 startBtn.addEventListener("click", startQuiz);
 // //  changes the ul id = "seconds"
-const secondsDisplay = document.querySelector(".seconds");
+let secondsDisplay = document.querySelector("#seconds");
 
-//start quiz button function to bring question text in and start timer
+//start quiz button function start timer
 function startQuiz() {
   console.log("Starting");
   // let seconds = totalSeconds;
   setInterval(function () {
     console.log("In the interval");
+    console.log(totalSeconds);
     totalSeconds--;
     let timeSpan = document.createElement("span");
     // document.getElementById(".seconds").text = totalSeconds;
-    timeSpan.innerHTML = totalSeconds;
+    timeSpan.textContent = totalSeconds;
     console.log("a");
-    secondsDisplay.innerHTML = "secondsLeft: " + timeSpan;
+    // secondsDisplay.textContent = secondsDisplay;
+    parent.append("timeSpan", seconds);
   }, 1000);
 }
 
-// let btn = document.querySelector("startQuiz");
+// //Create function to remove instructions, header and start-quiz button
+// let StartBtn = document.querySelector("#start-Quiz");
+// startBtn.addEventListener("click", removeInstructions);
+// let textCenter = document.querySelector((".textCenter".style.display = "none"));
+// startBtn.addEventListener("click", flyinQuest1);
+// let questionsText1 = document.querySelector(
+//   (".questionsText1".style.diplay = "visible")
+// );
+// startBtn.addEventListener("click", removeBtn);
+// let questionsText1 = document.querySelector(
+//   (".start-quiz".style.diplay = "none")
+// );
 
-// btn.addEventListener("click", function () {
-//   document.querySelector("textCenter").style.display = "none";
-// });
+//create question array to add text to answer buttons
 
-// document.getElementByid("startQuiz").addEventListener("click", removeIntro);
-// function removeIntro() {
-//   document.getElementByid("text-center text-black").style.display = "none";
-// }
+let questionsAvailable = [
+  {
+    question: "What is the DOM API?",
+    options: [
+      "Data representation of the objects that comprise the structure and content of a document on the web",
+      "Doing Outstanding Math",
+      "Domestic Over Minutes",
+      "Dividing Object Miniscule",
+    ],
+    right:
+      "Data representation of the objects that comprise the structure and content of a document on the web",
+  },
+  {
+    question: "What is JQeury?",
+    options: [
+      "A JavaScript Library",
+      "Just a question",
+      "Elements of the letter j",
+      "Justice without question",
+    ],
+    right: "A JavaScript Library",
+  },
+];
 
-// document.i("startQuiz").addEventListener("click", flyinQuest1);
-// function flyinQuest1() {
-//   document.getElementById("questions-text1").style.display = "visible";
-// }
-
-//   /* This function retrieves the values from the html input elements and resets "On Screen Timer and Time Left*/
-//   function updateTime(currentTime) {
-//     return currentTime - 10
-//      }
-
-//       // Set "On Screen Timer" fuctions
-//      function startTimer() {
-
-//          /* The "interval" variable here using "setInterval()" begins the recurring increment of the
-//             secondsElapsed variable which is used to check if the time is up */
-//            setInterval(function() {
-//            totalSeconds --
-
-//              //  renderTime() is called here once every second.
-//              renderTime();
-//            }, 1000);
-//        }
-
-// /
+let addQuestions = function () {
+  let submitBtn1 = document.getElementById("#Btn1");
+  let currentQuestion = questionsAvailable.options;
+for (let i = 0; i < questionsAvailable.options.length; i++) {
+  let ChoiceBtn = document.createElement("button");
+  ChoiceBtn.textContent = questionsAvailable.options[i];
+  ChoiceBtn.setAttribute("data-index", i);
+  ChoiceBtn.onclick = submitAnswer();
+  answersDiv.appendChild(ChoiceBtn);
+}
+  
+function submitAnswer (e){
+if 
+}

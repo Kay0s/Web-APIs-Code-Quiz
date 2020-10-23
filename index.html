@@ -29,16 +29,17 @@
     <!-- NavBar (copied and pasted from WC3) -->
     <!-- Dynamic NavBar (with Toggler for varying devices) with customized background color (bg-primary) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-      <!-- a href link on logo/Kristina Hamilton leading to Main/index.html -->
       <span class="navbar-brand mb-1 h1"
         ><a href="./highScores.html" target="_self">High Scores</a></span
       >
       <!-- <ul class="nav navbar-nav ml-auto"> -->
-        <h3 class ="seconds">Seconds Left:<h3>
-      <!-- </ul> -->
+      <span class="timerText">Time Left:</span>
+      <ul id="seconds">
+        00
+      </ul>
     </nav>
     <!-- Creates header font that's aligned center -->
-    <h1 class="text-center text-dark">Coding Quiz Challenge</h1>
+    <h1 class="textCenter">Coding Quiz Challenge</h1>
     <!-- Main Body goes in Container -->
     <!-- <div class="container rounded border-info mb-1"> -->
     <div class="container">
@@ -53,40 +54,12 @@
               limit. Keep in mind that incorrect answers will penalize your
               score/time by ten seconds!
             </p>
-              <button id="start-quiz">Start Quiz</button>
-            </div>
-            <div class="questions-text1">
-              <h4>Question 1 of 20</h4>
-              <p id="quiztext1">General Question</p>
-              <button
-                type="submit"
-                id="r1Btn"
-                value="1. Data representation of the objects that comprise the structure and content of a document on the web"
-              >
-                button1
-              </button>
-              <p id="r1"></p>
-              <button
-                type="submit"
-                id="w1Btn"
-                value="2. Doing Outstanding Math"
-              >
-                button2
-              </button>
-              <p id="w1"></p>
-              <button type="submit" id="w2Btn" value="3. Domestic Over Minutes">
-                button3
-              </button>
-              <p id="w2"></p>
-              <button
-                type="submit"
-                id="w3Btn"
-                value="4. Dividing Object Miniscule"
-              >
-                button4
-              </button>
-              <p id="w3"></p>
-            </div>
+            <button id="start-quiz">Start Quiz</button>
+          </div>
+          <div class="questionNumber">
+            <h4>Question of</h4>
+            <p id="questionText">General Question</p>
+            <div class="answers"></div>
           </div>
         </div>
       </div>
