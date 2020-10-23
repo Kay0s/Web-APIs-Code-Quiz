@@ -28,3 +28,7 @@ a:active {
 .nav navbar-nav ml-auto {
   float: right;
 }
+
+.hide {
+  display: none;
+}

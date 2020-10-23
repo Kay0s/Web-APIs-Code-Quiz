@@ -71,7 +71,7 @@ function startQuiz() {
     // secondsDisplay.textContent = secondsDisplay;
     parent.append("timeSpan", seconds);
   }, 1000);
-}
+};
 
 // //Create function to remove instructions, header and start-quiz button
 // let StartBtn = document.querySelector("#start-Quiz");
@@ -85,6 +85,8 @@ function startQuiz() {
 // let questionsText1 = document.querySelector(
 //   (".start-quiz".style.diplay = "none")
 // );
+
+
 
 //create question array to add text to answer buttons
 
@@ -126,3 +128,49 @@ for (let i = 0; i < questionsAvailable.options.length; i++) {
 function submitAnswer (e){
 if 
 }
+
+function wrongAnswer(){
+  if (options != ("right");
+  seconds -10;
+
+
+function init() {
+  // Get stored high scores and initials from localStorage
+  // Parsing the JSON string to an object
+  Let storedHighScores = JSON.parse(localStorage.getItem("initials"));
+
+  // If high scores were retrieved from localStorage, update the high scores array to it
+  if (storedHighScores !== null) {
+    HighScores = storedInitials;
+  }
+
+  // Render high scores to the DOM
+  renderHighScores();
+}
+
+function storeInitials() {
+  // Stringify and set "initials" key in localStorage to high scores array
+  localStorage.setItem("initials", JSON.stringify(initials));
+}
+
+// When initials are submitted...
+initialsForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  let initialsText = HighScoresInput.value.trim();
+
+  // Return from function early if submitted initials is blank
+  if (initialsText === "") {
+    return;
+  }
+
+  // Add new initialsText to high scores array, clear the input
+  initials.push(initialsText);
+ Input.value = "";
+
+  // Store updated high scores in localStorage, re-render the list
+  storeInitials();
+  renderInitials();
+});
+
+

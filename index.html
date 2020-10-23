@@ -30,40 +30,39 @@
     <!-- Dynamic NavBar (with Toggler for varying devices) with customized background color (bg-primary) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <span class="navbar-brand mb-1 h1"
-        ><a href="./highScores.html" target="_self">High Scores</a></span
-      >
+        ><a href="./highScores.html" target="_self">High Scores</a></span>
       <!-- <ul class="nav navbar-nav ml-auto"> -->
-      <span class="timerText">Time Left:</span>
-      <ul id="seconds">
-        00
-      </ul>
+      <div class="timerText">Time Left:</div>
+      <span id="seconds"> 00 </span>
     </nav>
-    <!-- Creates header font that's aligned center -->
-    <h1 class="textCenter">Coding Quiz Challenge</h1>
-    <!-- Main Body goes in Container -->
+     <!-- Main Body goes in Container -->
     <!-- <div class="container rounded border-info mb-1"> -->
-    <div class="container">
+      <div class="container">
+    <!-- Creates header font that's aligned center -->
+    <div id="instructions-screen" class="instructions"></div>
+      <h1>Coding Quiz Challenge</h1>
       <!-- About images go inside the card with class transparent to add CSS styling to affect the opacity of the card to see the background image-->
       <div class="card-transparent">
         <div class="row">
           <!-- One elements in row, so "col-lg-12 for large screen/computer -->
           <div class="col-sm-12">
             <!-- aligns text center -->
-            <p class="textCenter">
+            <p class="text-Center">
               Try to answer the following code-related questions within the time
               limit. Keep in mind that incorrect answers will penalize your
               score/time by ten seconds!
             </p>
             <button id="start-quiz">Start Quiz</button>
           </div>
-          <div class="questionNumber">
-            <h4>Question of</h4>
-            <p id="questionText">General Question</p>
-            <div class="answers"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+            <div id="questions-area" class="hide">
+          <h2 id="questions-info" class="questions"></div>
+            </div>
+            <div id="quiz-over"  class="hide">
+            <h3>Quiz is over</h3>
+            <p>Your final score is <span id="your-Final-Score"></span></p>
+   Enter Initials: <input type="text" id="initials" max="4">
+   <button id="score">Submit</button>
+   <p>
     <!-- Scripts (Copied and pasted from getbootstrap.com) required to allow some Bootstrap components, like the Dynamic NavBar, to work.-->
     <!-- jQuery CDN-->
     <script
@@ -80,8 +79,7 @@
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous"></script>
     <script src="scripts.js"></script>
   </body>
 </html>
