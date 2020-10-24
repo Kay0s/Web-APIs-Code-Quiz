@@ -40,21 +40,26 @@ let yourFinalScore = 0;
 let totalSeconds = 75;
 let questionsLeft = 5;
 
-// local parameters defined by events in functions
-let startBtn = document.querySelector("#start-quiz");
+// declaration of variables
 let secondsDisplay = document.querySelector("#seconds");
 let timeSpan = document.createElement("span");
-let ChoiceBtn = document.createElement("button");
-let answersDiv = document.querySelector(".answers");
-let submitBtn1 = document.getElementById("#Btn1");
-let currentQuestion = questionsAvailable.options;
-let ChoiceBtn = document.createElement("button");
-
-// event listener on click of "start-quiz" button defines 
+let instructionsScreen = document.querySelector("#instructions-screen");
 let startBtn = document.querySelector("#start-quiz");
+let questionsArea = document.querySelector("#questions-area");
+let ChoiceBtn = document.createElement("button");
+let questionsDiv = document.querySelector("#answers");
+let submitBtn1 = document.getElementById("#Btn1");
+// let currentQuestion = questionsAvailable.options;
+let quizOver = document.querySelector("#quiz-over");
+let initials = document.querySelector("#initials");
+let score = document.querySelector("#score");
+let rightWrong = document.querySelector("#right-wrong");
+
+// event listener on click of "start-quiz" button defines
+startBtn = document.querySelector("#start-quiz");
 startBtn.addEventListener("click", startQuiz);
 // //  changes the ul id = "seconds"
-let secondsDisplay = document.querySelector("#seconds");
+secondsDisplay = document.querySelector("#seconds");
 
 //start quiz button function start timer
 function startQuiz() {
@@ -64,14 +69,13 @@ function startQuiz() {
     console.log("In the interval");
     console.log(totalSeconds);
     totalSeconds--;
-    let timeSpan = document.createElement("span");
     // document.getElementById(".seconds").text = totalSeconds;
-    timeSpan.textContent = totalSeconds;
+    secondsDisplay.textContent = totalSeconds;
     console.log("a");
     // secondsDisplay.textContent = secondsDisplay;
     parent.append("timeSpan", seconds);
   }, 1000);
-};
+}
 
 // //Create function to remove instructions, header and start-quiz button
 // let StartBtn = document.querySelector("#start-Quiz");
@@ -85,8 +89,6 @@ function startQuiz() {
 // let questionsText1 = document.querySelector(
 //   (".start-quiz".style.diplay = "none")
 // );
-
-
 
 //create question array to add text to answer buttons
 
@@ -112,65 +114,100 @@ let questionsAvailable = [
     ],
     right: "A JavaScript Library",
   },
+  {
+    question: "What does git clone do?",
+    options: [
+      "used to point to an existing repo and make a clone or copy of that repo at in a new directory, at another location.",
+      "send in the clones",
+      "clone clyde",
+      "gets help",
+    ],
+    right:
+      "used to point to an existing repo and make a clone or copy of that repo at in a new directory, at another location",
+  },
+  {
+    question: "What is a CDN?",
+    options: [
+      "A content delivery network (CDN) refers to a geographically distributed group of servers which work together to provide fast delivery of Internet content.",
+      "average type of colors",
+      "cartoon delivery network",
+      "carboard dentist news",
+    ],
+    right:
+      "A content delivery network (CDN) refers to a geographically distributed group of servers which work together to provide fast delivery of Internet content.",
+  },
+  {
+    question: "What is a function?",
+    options: [
+      "a set of statements that performs a task or calculates a value",
+      "fun things",
+      "a fun time",
+      "a family of things",
+    ],
+    right: "a set of statements that performs a task or calculates a value",
+  },
 ];
 
 let addQuestions = function () {
   let submitBtn1 = document.getElementById("#Btn1");
   let currentQuestion = questionsAvailable.options;
-for (let i = 0; i < questionsAvailable.options.length; i++) {
-  let ChoiceBtn = document.createElement("button");
-  ChoiceBtn.textContent = questionsAvailable.options[i];
-  ChoiceBtn.setAttribute("data-index", i);
-  ChoiceBtn.onclick = submitAnswer();
-  answersDiv.appendChild(ChoiceBtn);
-}
-  
-function submitAnswer (e){
-if 
-}
-
-function wrongAnswer(){
-  if (options != ("right");
-  seconds -10;
-
-
-function init() {
-  // Get stored high scores and initials from localStorage
-  // Parsing the JSON string to an object
-  Let storedHighScores = JSON.parse(localStorage.getItem("initials"));
-
-  // If high scores were retrieved from localStorage, update the high scores array to it
-  if (storedHighScores !== null) {
-    HighScores = storedInitials;
+  for (let i = 0; i < questionsAvailable.options.length; i++) {
+    let ChoiceBtn = document.createElement("button");
+    ChoiceBtn.textContent = questionsAvailable.options[i];
+    ChoiceBtn.setAttribute("data-index", i);
+    ChoiceBtn.onclick = submitAnswer();
+    questionsDiv.appendChild(ChoiceBtn);
   }
+};
+// function submitAnswer (e){
+// if
+// }
 
-  // Render high scores to the DOM
-  renderHighScores();
-}
+// function rightWrongMessage(){}
 
-function storeInitials() {
-  // Stringify and set "initials" key in localStorage to high scores array
-  localStorage.setItem("initials", JSON.stringify(initials));
-}
+// function wrongAnswer(){
+//   if (options != ("right")seconds -10;
+// }
 
-// When initials are submitted...
-initialsForm.addEventListener("submit", function(event) {
-  event.preventDefault();
+// function questionsRemaining(){}
 
-  let initialsText = HighScoresInput.value.trim();
+// function yourFinalScore(){}
 
-  // Return from function early if submitted initials is blank
-  if (initialsText === "") {
-    return;
-  }
+// function init() {
+//   // Get stored high scores and initials from localStorage
+//   // Parsing the JSON string to an object
+//   Let storedHighScores = JSON.parse(localStorage.getItem("initials"));
 
-  // Add new initialsText to high scores array, clear the input
-  initials.push(initialsText);
- Input.value = "";
+//   // If high scores were retrieved from localStorage, update the high scores array to it
+//   if (storedHighScores !== null) {
+//     HighScores = storedInitials;
+//   }
 
-  // Store updated high scores in localStorage, re-render the list
-  storeInitials();
-  renderInitials();
-});
+//   // Render high scores to the DOM
+//   renderHighScores();
+// }
 
+// function storeInitials() {
+//   // Stringify and set "initials" key in localStorage to high scores array
+//   localStorage.setItem("initials", JSON.stringify(initials));
+// }
 
+// // When initials are submitted...
+// initialsForm.addEventListener("submit", function(event) {
+//   event.preventDefault();
+
+//   let initialsText = HighScoresInput.value.trim();
+
+//   // Return from function early if submitted initials is blank
+//   if (initialsText === "") {
+//     return;
+//   }
+
+//   // Add new initialsText to high scores array, clear the input
+//   initials.push(initialsText);
+//  Input.value = "";
+
+//   // Store updated high scores in localStorage, re-render the list
+//   storeInitials();
+//   renderInitials();
+// });
