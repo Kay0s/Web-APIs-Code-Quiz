@@ -78,18 +78,33 @@ function startQuiz() {
   }, 1000);
 }
 
-// //Create function to remove instructions, header and start-quiz button
-// let StartBtn = document.querySelector("#start-Quiz");
-// startBtn.addEventListener("click", removeInstructions);
-// let textCenter = document.querySelector((".textCenter".style.display = "none"));
-// startBtn.addEventListener("click", flyinQuest1);
-// let questionsText1 = document.querySelector(
-//   (".questionsText1".style.diplay = "visible")
-// );
-// startBtn.addEventListener("click", removeBtn);
-// let questionsText1 = document.querySelector(
-//   (".start-quiz".style.diplay = "none")
-// );
+startBtn = document.querySelector("#start-quiz");
+startBtn.addEventListener("click", startQuiz);
+//Create function to hide instructions, header and start-quiz button
+function hideInstructions() {
+  document.querySelector(".instructions").setAttribute("hidden", true);
+}
+
+startBtn = document.querySelector("#start-quiz");
+startBtn.addEventListener("click", startQuiz);
+//create function to hide header
+function hideH1() {
+  document.querySelector("h1").setAttribute("hidden", true);
+}
+
+startBtn = document.querySelector("#start-quiz");
+startBtn.addEventListener("click", startQuiz);
+//create function to hide p class
+function hideP() {
+  document.querySelector(".p").setAttribute("hidden", true);
+}
+
+startBtn = document.querySelector("#start-quiz");
+startBtn.addEventListener("click", startQuiz);
+//create function to hide StartBtn
+function hideStartBtn() {
+  document.querySelector("#start-button").setAttribute("hidden", true);
+}
 
 //create question array to add text to answer buttons
 
@@ -164,7 +179,7 @@ let addQuestions = function () {
 //function to check if user's submission is right or wrong to provide on-screen feedback and potentially decrease time
 function answersSubmitted() {
   rightOptions = questionsAvailable.querySelector("right");
-  let numRight = 0;
+  let userAnswer = 0;
   if (userAnswer === questionsAvailable.right) {
     yourFinalScore++;
     right - message.removeAttribute("hide");
@@ -173,6 +188,11 @@ function answersSubmitted() {
     totalSeconds - 10;
   }
   questionsLeft--;
+}
+if (questionsAvailable >= questionsAvailable.length - 1) {
+  endQuiz();
+} else {
+  showNextQuestion();
 }
 
 function yourFinalScore() {}
