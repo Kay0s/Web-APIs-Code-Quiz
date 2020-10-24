@@ -157,7 +157,7 @@ function answersSubmitted(event) {
   }
   currentQuestion++;
   if (currentQuestion === questionsAvailable.length) {
-    clearInterval(totalSeconds);
+    totalSeconds = 1;
     quizOver.removeAttribute("class");
     finalScore.textContent = yourFinalScore;
     questions.setAttribute("class", "hide");
