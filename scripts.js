@@ -37,7 +37,7 @@
 
 //Global Parameters
 let yourFinalScore = 0;
-let totalSeconds = 5;
+let totalSeconds = 10;
 let questionsLeft = 5;
 // declaration of variables
 let secondsDisplay = document.querySelector("#seconds");
@@ -59,7 +59,6 @@ startBtn.addEventListener("click", startQuiz);
 function startQuiz() {
   instructionsScreen.setAttribute("style", "display:none");
   addQuestions();
-  addChoices();
   let interval = setInterval(function () {
     totalSeconds--;
     secondsDisplay.textContent = totalSeconds;
@@ -140,31 +139,24 @@ function addQuestions() {
   buttonThreeEl.textContent = questionsAvailable[currentQuestion].options[3];
 }
 
-// for (let i = 0; i < questionsAvailable.options.length; i++) {
-//   // let ChoiceBtn = document.createElement("button");
-//   ChoiceBtn.textContent = questionsAvailable[currentQuestion].options[i];
-//   ChoiceBtn.setAttribute("data-index", i);
-//   ChoiceBtn.onclick = submitAnswer();
-//   questionsDiv.appendChild(ChoiceBtn);
-
 //function to check if user's submission is right or wrong to provide on-screen feedback and potentially decrease time
-function answersSubmitted() {
-  rightOptions = questionsAvailable.querySelector("right");
-  let userAnswer = 0;
-  if (userAnswer === questionsAvailable.right) {
+buttonZeroEl.addEventListener("click", answersSubmitted);
+buttonOneEl.addEventListener("click", answersSubmitted);
+buttonTwoEl.addEventListener("click", answersSubmitted);
+buttonThreeEl.addEventListener("click", answersSubmitted);
+function answersSubmitted(event) {
+  console.log(event.target.dataset.answer);
+  if (parseInt(event.target.dataset.answer) === 0) {
+    console.log("they are right");
     yourFinalScore++;
-    right - message.removeAttribute("hide");
   } else {
-    wrong - message.removeAttribut("hide");
-    totalSeconds - 10;
+    console.log("wrong");
+    totalSeconds -= 10;
+    secondsDisplay.textContent = totalSeconds;
   }
-  questionsLeft--;
 }
-if (questionsAvailable >= questionsAvailable.length - 1) {
-  endQuiz();
-} else {
-  //   showNextQuestion();
-}
+currentQuestion++;
+getQuestions();
 
 // function yourFinalScore() {}
 
