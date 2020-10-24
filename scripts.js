@@ -156,14 +156,16 @@ function answersSubmitted(event) {
   }
   currentQuestion++;
   addQuestions();
+  if (currentQuestion < questionsAvailable.length) {
+    getQuestions;
+  } else {
+    yourFinalScore();
+  }
 }
+// function yourFinalScore() {
+//   instructionsScreen.removeAttribute("style", "display:none");
+// }
 
-//   if (currentQuestion < questionsAvailable.length) {
-//     getQuestions;
-//  else {
-//     yourFinalScore();
-//   }
-//   }
 // function init() {
 //   // Get stored high scores and initials from localStorage
 //   // Parsing the JSON string to an object
