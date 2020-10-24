@@ -43,7 +43,7 @@ let questionsLeft = 5;
 let secondsDisplay = document.querySelector("#seconds");
 let instructionsScreen = document.querySelector("#instructionsScreen");
 let startBtn = document.querySelector("#start-quiz");
-let questionsArea = document.querySelector("#questions-area");
+let questions = document.querySelector("#questions");
 let ChoiceBtn = document.createElement("button");
 let questionsDiv = document.querySelector("#answers");
 let quizOver = document.querySelector("#quiz-over");
@@ -51,6 +51,7 @@ let initials = document.querySelector("#initials");
 let score = document.querySelector("#score");
 let rightWrong = document.querySelector("#right-wrong");
 let questionsInfoEl = document.querySelector("#questions-info");
+let finalScore = document.querySelector("#final-Score");
 
 // event listener on click of "start-quiz" button defines
 startBtn.addEventListener("click", startQuiz);
@@ -130,7 +131,7 @@ let buttonTwoEl = document.querySelector("#answer2");
 let buttonThreeEl = document.querySelector("#answer3");
 function addQuestions() {
   console.log("addQuestionsStart");
-  questionsArea.setAttribute("class", "");
+  questions.removeAttribute("class");
   let currentQuestionText = questionsAvailable[currentQuestion].question;
   questionsInfoEl.textContent = currentQuestionText;
   buttonZeroEl.textContent = questionsAvailable[currentQuestion].options[0];
@@ -155,16 +156,15 @@ function answersSubmitted(event) {
     secondsDisplay.textContent = totalSeconds;
   }
   currentQuestion++;
-  addQuestions();
-  if (currentQuestion < questionsAvailable.length) {
-    getQuestions;
+  if (currentQuestion === questionsAvailable.length) {
+    clearInterval(totalSeconds);
+    quizOver.removeAttribute("class");
+    finalScore.textContent = yourFinalScore;
+    questions.setAttribute("class", "hide");
   } else {
-    yourFinalScore();
+    addQuestions();
   }
 }
-// function yourFinalScore() {
-//   instructionsScreen.removeAttribute("style", "display:none");
-// }
 
 // function init() {
 //   // Get stored high scores and initials from localStorage
