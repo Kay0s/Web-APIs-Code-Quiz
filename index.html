@@ -29,41 +29,48 @@
     <!-- Dynamic NavBar (with Toggler for varying devices) with customized background color (bg-primary) -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
       <span class="navbar-brand mb-1 h1"
-        ><a href="./highScores.html" target="_self">High Scores</a></span>
+        ><a href="./highScores.html" target="_self">High Scores</a></span
+      >
       <!-- <ul class="nav navbar-nav ml-auto"> -->
       <div class="timerText">Time Left:</div>
       <span id="seconds"> 00 </span>
     </nav>
-     <!-- Main Body goes in Container -->
+    <!-- Main Body goes in Container -->
     <!-- <div class="container rounded border-info mb-1"> -->
-      <div class="container">
-    <!-- Creates header font that's aligned center -->
-    <div id="instructionsScreen" class="instructions"></div>
+    <div class="container">
+      <!-- Creates header font that's aligned center -->
+
       <h1>Coding Quiz Challenge</h1>
-        <div class="row">
-          <!-- One elements in row, so "col-lg-12 for large screen/computer -->
-          <div class="col-sm-12">
-            <!-- aligns text center -->
-            <p class="text-Center">
-              Try to answer the following code-related questions within the time
-              limit. Keep in mind that incorrect answers will penalize your
-              score/time by ten seconds!
-            </p>
-            <button id="start-quiz">Start Quiz</button>
-          </div>
-            <div id="questions-area" class="hide">
-          <h2 id="questions-info" class="questions"></div>
-            </div>
-            </div>
-            <div id = "right-message" class="hide">Right</div>
-            <div id = "wrong-message" class="hide">Wrong</div>
-            <div id="quiz-over"  class="hide">
-            <h3>Quiz is over</h3>
-            <p>Your final score is <span id="your-Final-Score"></span></p>
-   Enter Initials: <input type="text" id="initials" max="4">
-   <button id="score">Submit</button>
-    <!-- Scripts (Copied and pasted from getbootstrap.com) required to allow some Bootstrap components, like the Dynamic NavBar, to work.-->
-    <!-- jQuery CDN-->
+
+      <!-- One elements in row, so "col-lg-12 for large screen/computer -->
+
+      <div id="instructionsScreen" class="instructions">
+        <p class="text-Center">
+          Try to answer the following code-related questions within the time
+          limit. Keep in mind that incorrect answers will penalize your
+          score/time by ten seconds!
+        </p>
+        <button id="start-quiz">Start Quiz</button>
+      </div>
+
+      <div id="questions-area" class="hide">
+        <h2 id="questions-info" class="questions"></h2>
+        <button id="answer0" data-answer="0"></button>
+        <button id="answer1" data-answer="1"></button>
+        <button id="answer2" data-answer="2"></button>
+        <button id="answer3" data-answer="3"></button>
+        <div id="right-message" class="hide">Right</div>
+        <div id="wrong-message" class="hide">Wrong</div>
+      </div>
+      <div id="quiz-over" class="hide">
+        <h3>Quiz is over</h3>
+        <p>Your final score is <span id="your-Final-Score"></span></p>
+        Enter Initials: <input type="text" id="initials" max="4" />
+        <button id="score">Submit</button>
+        <!-- Scripts (Copied and pasted from getbootstrap.com) required to allow some Bootstrap components, like the Dynamic NavBar, to work.-->
+        <!-- jQuery CDN-->
+      </div>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -78,7 +85,8 @@
     <script
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script src="scripts.js"></script>
   </body>
 </html>

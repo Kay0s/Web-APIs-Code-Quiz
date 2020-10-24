@@ -41,74 +41,31 @@ let totalSeconds = 5;
 let questionsLeft = 5;
 // declaration of variables
 let secondsDisplay = document.querySelector("#seconds");
-let timeSpan = document.createElement("span");
-let instructionsScreen = document.querySelector("#instructions-screen");
+let instructionsScreen = document.querySelector("#instructionsScreen");
 let startBtn = document.querySelector("#start-quiz");
 let questionsArea = document.querySelector("#questions-area");
 let ChoiceBtn = document.createElement("button");
 let questionsDiv = document.querySelector("#answers");
-let submitBtn1 = document.getElementById("#Btn1");
-// let rightOptions = questionsAvailable.querySelector("right");
-// let currentQuestion = questionsAvailable.options;
 let quizOver = document.querySelector("#quiz-over");
 let initials = document.querySelector("#initials");
 let score = document.querySelector("#score");
 let rightWrong = document.querySelector("#right-wrong");
+let questionsInfoEl = document.querySelector("#questions-info");
 
 // event listener on click of "start-quiz" button defines
-startBtn = document.querySelector("#start-quiz");
 startBtn.addEventListener("click", startQuiz);
-// //  changes the ul id = "seconds"
-secondsDisplay = document.querySelector("#seconds");
 
 //start quiz button function start timer
 function startQuiz() {
-  console.log("Starting");
-  document
-    .querySelector("#instructionsScreen")
-    .setAttribute("style", "display:none");
-  console.log(document.querySelector("#instructionsScreen"));
-  // let seconds = totalSeconds;
+  instructionsScreen.setAttribute("style", "display:none");
+  addQuestions();
   let interval = setInterval(function () {
-    console.log("In the interval");
-    console.log(totalSeconds);
     totalSeconds--;
-    // document.getElementById(".seconds").text = totalSeconds;
     secondsDisplay.textContent = totalSeconds;
-    console.log("a");
-    // secondsDisplay.textContent = secondsDisplay;
-    // /parent.append("timeSpan", seconds);
     if (totalSeconds < 1) {
       clearInterval(interval);
     }
   }, 1000);
-}
-
-// //Create function to hide instructions, header and start-quiz button
-// startBtn = document.querySelector("#start-quiz");
-// startBtn.addEventListener("click", function () {
-//   document.querySelector("#instructionsScreen").style.display = "none";
-// });
-
-startBtn = document.querySelector("#start-quiz");
-startBtn.addEventListener("click", startQuiz);
-//create function to hide header
-function hideH1() {
-  document.querySelector("h1").setAttribute("hidden", true);
-}
-
-startBtn = document.querySelector("#start-quiz");
-startBtn.addEventListener("click", startQuiz);
-//create function to hide p class
-function hideP() {
-  document.querySelector(".p").setAttribute("hidden", true);
-}
-
-startBtn = document.querySelector("#start-quiz");
-startBtn.addEventListener("click", startQuiz);
-//create function to hide StartBtn
-function hideStartBtn() {
-  document.querySelector("#start-button").setAttribute("hidden", true);
 }
 
 //create question array to add text to answer buttons
@@ -122,8 +79,7 @@ let questionsAvailable = [
       "Domestic Over Minutes",
       "Dividing Object Miniscule",
     ],
-    right:
-      "Data representation of the objects that comprise the structure and content of a document on the web",
+    right: 0,
   },
   {
     question: "What is JQeury?",
@@ -169,9 +125,11 @@ let questionsAvailable = [
   },
 ];
 
-let addQuestions = function () {
-  let submitBtn1 = document.getElementById("#Btn1");
-  let currentQuestion = questionsAvailable.options;
+let currentQuestion = 0;
+function addQuestions() {
+  questionsArea.setAttribute("class", "");
+  let currentQuestionText = questionsAvailable[currentQuestion].question;
+  questionsInfoEl.textContent = currentQuestionText;
   for (let i = 0; i < questionsAvailable.options.length; i++) {
     let ChoiceBtn = document.createElement("button");
     ChoiceBtn.textContent = questionsAvailable.options[i];
@@ -179,7 +137,7 @@ let addQuestions = function () {
     ChoiceBtn.onclick = submitAnswer();
     questionsDiv.appendChild(ChoiceBtn);
   }
-};
+}
 
 //function to check if user's submission is right or wrong to provide on-screen feedback and potentially decrease time
 function answersSubmitted() {
