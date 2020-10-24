@@ -25,9 +25,14 @@ a:active {
   text-decoration: underline;
 }
 
-.nav navbar-nav ml-auto {
-  float: right;
+/* h1 {
+  align-items: center;
 }
+
+.timerText,
+#seconds {
+  justify-content: right;
+} */
 
 .hide {
   display: none;

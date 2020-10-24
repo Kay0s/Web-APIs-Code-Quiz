@@ -37,9 +37,8 @@
 
 //Global Parameters
 let yourFinalScore = 0;
-let totalSeconds = 75;
+let totalSeconds = 5;
 let questionsLeft = 5;
-
 // declaration of variables
 let secondsDisplay = document.querySelector("#seconds");
 let timeSpan = document.createElement("span");
@@ -49,7 +48,7 @@ let questionsArea = document.querySelector("#questions-area");
 let ChoiceBtn = document.createElement("button");
 let questionsDiv = document.querySelector("#answers");
 let submitBtn1 = document.getElementById("#Btn1");
-let rightOptions = questionsAvailable.querySelector("right");
+// let rightOptions = questionsAvailable.querySelector("right");
 // let currentQuestion = questionsAvailable.options;
 let quizOver = document.querySelector("#quiz-over");
 let initials = document.querySelector("#initials");
@@ -65,8 +64,12 @@ secondsDisplay = document.querySelector("#seconds");
 //start quiz button function start timer
 function startQuiz() {
   console.log("Starting");
+  document
+    .querySelector("#instructionsScreen")
+    .setAttribute("style", "display:none");
+  console.log(document.querySelector("#instructionsScreen"));
   // let seconds = totalSeconds;
-  setInterval(function () {
+  let interval = setInterval(function () {
     console.log("In the interval");
     console.log(totalSeconds);
     totalSeconds--;
@@ -74,16 +77,18 @@ function startQuiz() {
     secondsDisplay.textContent = totalSeconds;
     console.log("a");
     // secondsDisplay.textContent = secondsDisplay;
-    parent.append("timeSpan", seconds);
+    // /parent.append("timeSpan", seconds);
+    if (totalSeconds < 1) {
+      clearInterval(interval);
+    }
   }, 1000);
 }
 
-startBtn = document.querySelector("#start-quiz");
-startBtn.addEventListener("click", startQuiz);
-//Create function to hide instructions, header and start-quiz button
-function hideInstructions() {
-  document.querySelector(".instructions").setAttribute("hidden", true);
-}
+// //Create function to hide instructions, header and start-quiz button
+// startBtn = document.querySelector("#start-quiz");
+// startBtn.addEventListener("click", function () {
+//   document.querySelector("#instructionsScreen").style.display = "none";
+// });
 
 startBtn = document.querySelector("#start-quiz");
 startBtn.addEventListener("click", startQuiz);
@@ -192,10 +197,10 @@ function answersSubmitted() {
 if (questionsAvailable >= questionsAvailable.length - 1) {
   endQuiz();
 } else {
-  showNextQuestion();
+  //   showNextQuestion();
 }
 
-function yourFinalScore() {}
+// function yourFinalScore() {}
 
 // function init() {
 //   // Get stored high scores and initials from localStorage

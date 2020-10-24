@@ -1,50 +1,67 @@
 <!DOCTYPE html>
 
 <html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- meta tag for proper scaling across varying devices. -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
+    <!-- Title on Main Page for screen reader users and SEO optimization. -->
+    <title>Coding Quiz - High Score</title>
 
-  <meta charset="UTF-8">
-  <!-- meta tag for proper scaling across varying devices. -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
- 
-  <!-- Title on Main Page for screen reader users and SEO optimization. -->
-  <title> Web APIs - Quiz High Scores</title>
+    <!-- Bootstrap CSS (copied and pasted from getbootstrap.com) and custom CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!-- Custom CSS adding styling to links, background image and card opacity -->
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-  <!-- Bootstrap CSS (copied and pasted from getbootstrap.com) and custom CSS --> 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <!-- Custom CSS adding styling to links, background image and card opacity --> 
-  <link rel="stylesheet" href="./style.css">
-
-</head>
-
-<!-- help image parameters) -->
-<body style="height:100%">
-
-
-        <!-- Creates header font that's aligned center -->
-        <h1 class="text-center text-dark">Coding Quiz High Scores</h1>
-  <!-- Main Body goes in Container -->
-  <!-- <div class="container rounded border-info mb-1"> -->
+  <!-- help image parameters) -->
+  <body style="height: 100%">
+    <!-- NavBar (copied and pasted from WC3) -->
+    <!-- Dynamic NavBar (with Toggler for varying devices) with customized background color (bg-primary) -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <span class="navbar-brand mb-1 h1"
+        ><a href="./index.html" target="_self">Back to Quiz</a></span
+      >
+      <!-- <ul class="nav navbar-nav ml-auto"> -->
+      <div class="timerText">Time Left:</div>
+      <span id="seconds"> 00 </span>
+    </nav>
+    <!-- Main Body goes in Container -->
+    <!-- <div class="container rounded border-info mb-1"> -->
     <div class="container">
-  <!-- About images go inside the card with class transparent to add CSS styling to affect the opacity of the card to see the background image-->
-    <div class="card-transparent">
-       <div class="row">
-       <!-- One elements in row, so "col-lg-12 for large screen/computer -->
-       <div class="col-sm-12">
-        <!-- aligns text center -->
-       <tr><ol>High Scores</ol></tr>
-       
-  <!-- Scripts (Copied and pasted from getbootstrap.com) required to allow some Bootstrap components, like the Dynamic NavBar, to work.-->
-  <!-- jQuery CDN-->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-  </script>
-  <!-- Bootstrap JavaScript CDN-->
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-  </script>
-  <script src="scripts.js"></script>
-</body>
+      <!-- Creates header font that's aligned center -->
+      <div id="highscores-title" class="title"></div>
+      <h1>Coding Quiz High Scores</h1>
+      <div id="highscores-row" class="scores"></div>
+    </div>
+    <!-- Scripts (Copied and pasted from getbootstrap.com) required to allow some Bootstrap components, like the Dynamic NavBar, to work.-->
+    <!-- jQuery CDN-->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Bootstrap JavaScript CDN-->
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts.js"></script>
+  </body>
 </html>
