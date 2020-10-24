@@ -37,7 +37,7 @@
 
 //Global Parameters
 let yourFinalScore = 0;
-let totalSeconds = 10;
+let totalSeconds = 75;
 let questionsLeft = 5;
 // declaration of variables
 let secondsDisplay = document.querySelector("#seconds");
@@ -154,12 +154,16 @@ function answersSubmitted(event) {
     totalSeconds -= 10;
     secondsDisplay.textContent = totalSeconds;
   }
+  currentQuestion++;
+  addQuestions();
 }
-currentQuestion++;
-getQuestions();
 
-// function yourFinalScore() {}
-
+//   if (currentQuestion < questionsAvailable.length) {
+//     getQuestions;
+//  else {
+//     yourFinalScore();
+//   }
+//   }
 // function init() {
 //   // Get stored high scores and initials from localStorage
 //   // Parsing the JSON string to an object
