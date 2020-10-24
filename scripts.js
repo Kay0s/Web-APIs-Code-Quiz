@@ -49,6 +49,7 @@ let questionsArea = document.querySelector("#questions-area");
 let ChoiceBtn = document.createElement("button");
 let questionsDiv = document.querySelector("#answers");
 let submitBtn1 = document.getElementById("#Btn1");
+let rightOptions = questionsAvailable.querySelector("right");
 // let currentQuestion = questionsAvailable.options;
 let quizOver = document.querySelector("#quiz-over");
 let initials = document.querySelector("#initials");
@@ -159,19 +160,22 @@ let addQuestions = function () {
     questionsDiv.appendChild(ChoiceBtn);
   }
 };
-// function submitAnswer (e){
-// if
-// }
 
-// function rightWrongMessage(){}
+//function to check if user's submission is right or wrong to provide on-screen feedback and potentially decrease time
+function answersSubmitted() {
+  rightOptions = questionsAvailable.querySelector("right");
+  let numRight = 0;
+  if (userAnswer === questionsAvailable.right) {
+    yourFinalScore++;
+    right - message.removeAttribute("hide");
+  } else {
+    wrong - message.removeAttribut("hide");
+    totalSeconds - 10;
+  }
+  questionsLeft--;
+}
 
-// function wrongAnswer(){
-//   if (options != ("right")seconds -10;
-// }
-
-// function questionsRemaining(){}
-
-// function yourFinalScore(){}
+function yourFinalScore() {}
 
 // function init() {
 //   // Get stored high scores and initials from localStorage

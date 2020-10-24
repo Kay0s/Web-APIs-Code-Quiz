@@ -41,8 +41,6 @@
     <!-- Creates header font that's aligned center -->
     <div id="instructions-screen" class="instructions"></div>
       <h1>Coding Quiz Challenge</h1>
-      <!-- About images go inside the card with class transparent to add CSS styling to affect the opacity of the card to see the background image-->
-      <div class="card-transparent">
         <div class="row">
           <!-- One elements in row, so "col-lg-12 for large screen/computer -->
           <div class="col-sm-12">
@@ -58,7 +56,8 @@
           <h2 id="questions-info" class="questions"></div>
             </div>
             </div>
-            <div id = "right-wrong-message" class="hide"></div>
+            <div id = "right-message" class="hide">Right</div>
+            <div id = "wrong-message" class="hide">Wrong</div>
             <div id="quiz-over"  class="hide">
             <h3>Quiz is over</h3>
             <p>Your final score is <span id="your-Final-Score"></span></p>
