@@ -59,6 +59,7 @@ startBtn.addEventListener("click", startQuiz);
 function startQuiz() {
   instructionsScreen.setAttribute("style", "display:none");
   addQuestions();
+  addChoices();
   let interval = setInterval(function () {
     totalSeconds--;
     secondsDisplay.textContent = totalSeconds;
@@ -89,7 +90,7 @@ let questionsAvailable = [
       "Elements of the letter j",
       "Justice without question",
     ],
-    right: "A JavaScript Library",
+    right: 0,
   },
   {
     question: "What does git clone do?",
@@ -99,8 +100,7 @@ let questionsAvailable = [
       "clone clyde",
       "gets help",
     ],
-    right:
-      "used to point to an existing repo and make a clone or copy of that repo at in a new directory, at another location",
+    right: 0,
   },
   {
     question: "What is a CDN?",
@@ -110,8 +110,7 @@ let questionsAvailable = [
       "cartoon delivery network",
       "carboard dentist news",
     ],
-    right:
-      "A content delivery network (CDN) refers to a geographically distributed group of servers which work together to provide fast delivery of Internet content.",
+    right: 0,
   },
   {
     question: "What is a function?",
@@ -121,23 +120,32 @@ let questionsAvailable = [
       "a fun time",
       "a family of things",
     ],
-    right: "a set of statements that performs a task or calculates a value",
+    right: 0,
   },
 ];
 
 let currentQuestion = 0;
+let buttonZeroEl = document.querySelector("#answer0");
+let buttonOneEl = document.querySelector("#answer1");
+let buttonTwoEl = document.querySelector("#answer2");
+let buttonThreeEl = document.querySelector("#answer3");
 function addQuestions() {
+  console.log("addQuestionsStart");
   questionsArea.setAttribute("class", "");
   let currentQuestionText = questionsAvailable[currentQuestion].question;
   questionsInfoEl.textContent = currentQuestionText;
-  for (let i = 0; i < questionsAvailable.options.length; i++) {
-    let ChoiceBtn = document.createElement("button");
-    ChoiceBtn.textContent = questionsAvailable.options[i];
-    ChoiceBtn.setAttribute("data-index", i);
-    ChoiceBtn.onclick = submitAnswer();
-    questionsDiv.appendChild(ChoiceBtn);
-  }
+  buttonZeroEl.textContent = questionsAvailable[currentQuestion].options[0];
+  buttonOneEl.textContent = questionsAvailable[currentQuestion].options[1];
+  buttonTwoEl.textContent = questionsAvailable[currentQuestion].options[2];
+  buttonThreeEl.textContent = questionsAvailable[currentQuestion].options[3];
 }
+
+// for (let i = 0; i < questionsAvailable.options.length; i++) {
+//   // let ChoiceBtn = document.createElement("button");
+//   ChoiceBtn.textContent = questionsAvailable[currentQuestion].options[i];
+//   ChoiceBtn.setAttribute("data-index", i);
+//   ChoiceBtn.onclick = submitAnswer();
+//   questionsDiv.appendChild(ChoiceBtn);
 
 //function to check if user's submission is right or wrong to provide on-screen feedback and potentially decrease time
 function answersSubmitted() {
