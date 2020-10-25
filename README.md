@@ -46,8 +46,8 @@ Through information and feedback provided by the coding boot campot student, the
 ## Deployed Optimized Website and Final JavaScript Code
 
 \*[Deployed website](https://kay0s.github.io/Web-APIs-Code-Quiz/) \*[GitHub Repository]https://github.com/Kay0s/Web-APIs-Code-Quiz
-![Screenshot of deployed website](./deployedIndex.png)
-![Screenshot of finalized JavaScript Code](./code.png)
+![Screenshot of deployed website](deployedIndex.png)
+![Screenshot of finalized JavaScript Code](code.png)
 
 ## Research Resources
 
