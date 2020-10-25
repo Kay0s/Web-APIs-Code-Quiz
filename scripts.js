@@ -181,41 +181,18 @@ function initialInput() {
 function init() {
   // Get stored high scores and initials from localStorage
   // Parsing the JSON string to an object
-  storedHighScores = JSON.parse(
-    localStorage.getItem(nameInput, yourFinalScore)
-  );
-  console.log(storedHighScores);
+  let storedHighScores =
+    JSON.parse(window.localStorage.getItem("highscores")) || [];
+
+  // If high scores were retrieved from localStorage, update the high scores array to it
+  if (nameInput !== "") {
+    yourFinalScore = nameInput;
+    let newScore = {
+      score: time,
+      inititals: initials,
+    };
+
+    storedHighScores.push(newScore);
+    window.localStorage.setItem("highscores", JSON.stringify(highscores));
+  }
 }
-
-// // If high scores were retrieved from localStorage, update the high scores array to it
-//   if (yourFinalScore!== null) {
-//     yourFinalScore = nameInput;
-//   }
-
-// //   // Render high scores to the DOM
-//   renderHighScores();{
-// }
-
-// function storeInitials() {
-//   // Stringify and set "initials" key in localStorage to high scores array
-//   localStorage.setItem("initials", JSON.stringify(initials));
-// }
-
-// // When initials are submitted...
-// initialsForm.addEventListener("submit", function (event) {
-//   event.preventDefault();
-
-//   let initialsText = HighScoresInput.value.trim();
-
-//   // Return from function early if submitted initials is blank
-//   if (initialsText === "") {
-//     return;
-//   }
-
-//   // Add new initialsText to high scores array, clear the input
-//   initials.push(initialsText);
-//   Input.value = "";
-
-//   // Store updated high scores in localStorage, re-render the list
-//   storeInitials();
-//   renderInitials();

@@ -65,8 +65,11 @@
       <div id="quiz-over" class="hide">
         <h3>Quiz is over</h3>
         <p>Your final score is <span id="final-Score"></span></p>
-        Enter Initials: <input type="text" id="initials" max="4" />
-        <button id="score">Submit</button>
+        Enter Initials:
+        <form action="highScores.html">
+          <input type="text" id="initials" max="4" />
+          <button id="score">Submit</button>
+        </form>
         <!-- Scripts (Copied and pasted from getbootstrap.com) required to allow some Bootstrap components, like the Dynamic NavBar, to work.-->
         <!-- jQuery CDN-->
       </div>
