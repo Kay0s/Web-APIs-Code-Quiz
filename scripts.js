@@ -52,6 +52,7 @@ let score = document.querySelector("#score");
 let rightWrong = document.querySelector("#right-wrong");
 let questionsInfoEl = document.querySelector("#questions-info");
 let finalScore = document.querySelector("#final-Score");
+let storedHighScores = [];
 
 // event listener on click of "start-quiz" button defines
 startBtn.addEventListener("click", startQuiz);
@@ -149,10 +150,12 @@ function answersSubmitted(event) {
   console.log(event.target.dataset.answer);
   if (parseInt(event.target.dataset.answer) === 0) {
     console.log("they are right");
+    alert("You're right!");
     yourFinalScore++;
   } else {
     console.log("wrong");
     totalSeconds -= 10;
+    alert("You're wrong");
     secondsDisplay.textContent = totalSeconds;
   }
   currentQuestion++;
@@ -161,23 +164,36 @@ function answersSubmitted(event) {
     quizOver.removeAttribute("class");
     finalScore.textContent = yourFinalScore;
     questions.setAttribute("class", "hide");
+    initialInput();
   } else {
     addQuestions();
   }
 }
 
-// function init() {
-//   // Get stored high scores and initials from localStorage
-//   // Parsing the JSON string to an object
-//   Let storedHighScores = JSON.parse(localStorage.getItem("initials"));
+function initialInput() {
+  score.addEventListener("click", function () {
+    let nameInput = initials.value;
+    console.log(nameInput);
+    return nameInput;
+  });
+}
 
-//   // If high scores were retrieved from localStorage, update the high scores array to it
-//   if (storedHighScores !== null) {
-//     HighScores = storedInitials;
+function init() {
+  // Get stored high scores and initials from localStorage
+  // Parsing the JSON string to an object
+  storedHighScores = JSON.parse(
+    localStorage.getItem(nameInput, yourFinalScore)
+  );
+  console.log(storedHighScores);
+}
+
+// // If high scores were retrieved from localStorage, update the high scores array to it
+//   if (yourFinalScore!== null) {
+//     yourFinalScore = nameInput;
 //   }
 
-//   // Render high scores to the DOM
-//   renderHighScores();
+// //   // Render high scores to the DOM
+//   renderHighScores();{
 // }
 
 // function storeInitials() {
@@ -186,7 +202,7 @@ function answersSubmitted(event) {
 // }
 
 // // When initials are submitted...
-// initialsForm.addEventListener("submit", function(event) {
+// initialsForm.addEventListener("submit", function (event) {
 //   event.preventDefault();
 
 //   let initialsText = HighScoresInput.value.trim();
@@ -198,9 +214,8 @@ function answersSubmitted(event) {
 
 //   // Add new initialsText to high scores array, clear the input
 //   initials.push(initialsText);
-//  Input.value = "";
+//   Input.value = "";
 
 //   // Store updated high scores in localStorage, re-render the list
 //   storeInitials();
 //   renderInitials();
-// });
